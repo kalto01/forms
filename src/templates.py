@@ -20,21 +20,6 @@ class Date(str):
         raise ValueError
 
 
-class NameField(str):
-    @classmethod
-    def __get_validators__(cls):
-        yield cls.validate
-
-    @classmethod
-    def validate(cls, v):
-        if isinstance(v, str):
-            splited_value = v.split('_')
-            if splited_value == 3 and \
-                    splited_value[0] == 'field' and type(splited_value[2]) is int and splited_value[1] == 'name':
-                return cls(v)
-        raise ValueError
-
-
 class Phone(str):
     @classmethod
     def __get_validators__(cls):
